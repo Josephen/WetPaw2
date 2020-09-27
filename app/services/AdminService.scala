@@ -1,5 +1,7 @@
 package services
 
+import java.util.UUID
+
 import javax.inject.Inject
 import models.user.User
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
@@ -19,4 +21,15 @@ class AdminService @Inject() (
     db.run {
       adminRep.list(role)
     }
+
+  def changeArticle(id: UUID, isApprove: Option[Boolean]): Future[Int] =
+    db.run {
+      adminRep.changeArticle(id, isApprove)
+    }
+
+  def changeUser(id: UUID, isActive: Option[Boolean]): Future[Int] =
+    db.run {
+      adminRep.changeUser(id, isActive)
+    }
+
 }

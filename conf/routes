@@ -10,11 +10,13 @@ GET     /user/:id                   controllers.UserController.get(id: java.util
 
 #Article Routes
 POST    /article                    controllers.ArticleController.create
-GET     /articles                   controllers.ArticleController.list(author: Option[String], category: Option[String], isApproved: Option[Boolean], sex: Option[Boolean])
+GET     /articles                   controllers.ArticleController.list(author: Option[String], category: Option[String], isApproved: Option[Boolean] = Some(true), sex: Option[Boolean])
 PUT     /article/update/:id         controllers.ArticleController.update(id: java.util.UUID)
 
 # Admin Routes
 GET     /admin/users                controllers.AdminController.list(role: Option[Long])
+GET     /admin/user/:id             controllers.AdminController.changeUser(id: java.util.UUID, isActive: Option[Boolean])
+GET     /admin/article/:id          controllers.AdminController.changeArticle(id: java.util.UUID, isApprove: Option[Boolean])
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
