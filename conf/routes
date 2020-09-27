@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# User Routes
+POST    /signup                     controllers.UserController.register
+POST    /signin                     controllers.UserController.login
+GET     /user/:id                   controllers.UserController.get(id: java.util.UUID)
+
+#Article Routes
+POST    /article                    controllers.ArticleController.create
+GET     /articles                   controllers.ArticleController.list(author: Option[String], category: Option[String], isApproved: Option[Boolean], sex: Option[Boolean])
+
+# Admin Routes
+GET     /admin/users                controllers.AdminController.list(role: Option[Long])
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
