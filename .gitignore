@@ -7,3 +7,4 @@ target
 /.settings
 /RUNNING_PID
 conf/application.prod.conf
+conf/application.conf
