@@ -6,4 +6,4 @@ target
 /.project
 /.settings
 /RUNNING_PID
-/conf/application.prod.conf
+conf/application.prod.conf
